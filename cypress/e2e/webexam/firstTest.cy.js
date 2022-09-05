@@ -42,7 +42,13 @@ it('click', ()=>{
 })
 
 it.only('checkbox', ()=>{
-    cy.visit("https://webref.ru/layout/html5-css3/form/checkbox")
-        .get('[value="1883"]')
-        .check()
+    cy.viewport(1440,900)
+    cy.visit("https://80.69.180.108:8441/")
+    .get('[type="email"]')
+    .type('super@admin.ru', {force: true})
+    cy.get('[type="password"]')
+    .type('qwe123QWE!@#', {force: true})
+    cy.get('[type="submit"]')
+    .click({force: true})
+    cy.get()
 })
