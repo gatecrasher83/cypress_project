@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-t.only('checkbox', ()=>{
+it.only('assertion footer', ()=>{
     cy.viewport(1440,900)
     cy.visit("https://80.69.180.108:8441/")
     //ввод логина
@@ -21,6 +21,7 @@ t.only('checkbox', ()=>{
     .wait(3000)
     .scrollIntoView()
     .wait(2000)
+    //assertion footer
     .get('[class="text-muted col-auto m-auto noselect"]')
     .should('have.text', ' ©2000-2022 Форвард ')
     //выход
