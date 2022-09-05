@@ -44,11 +44,25 @@ it('click', ()=>{
 it.only('checkbox', ()=>{
     cy.viewport(1440,900)
     cy.visit("https://80.69.180.108:8441/")
-    .get('[type="email"]')
+    //ввод логина
+    cy.get('[type="email"]')
     .type('super@admin.ru', {force: true})
+    //ввод пароля
     cy.get('[type="password"]')
     .type('qwe123QWE!@#', {force: true})
+    //войти
     cy.get('[type="submit"]')
     .click({force: true})
-    cy.get()
+    .wait(2000)
+    //открыть раздел "Контрагенты"
+    cy.get('button').contains('Контрагенты')
+    .click({force: true})
+    //скролл до пейджинатора
+    cy.get('div').contains(' элементов на странице: ')
+    .wait(3000)
+    .scrollIntoView()
+    .wait(2000)
+    //выход
+    cy.get('span').contains(' Выход')
+    .click({force: true})  
 })
