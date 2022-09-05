@@ -35,8 +35,14 @@ it('submit', ()=>{
         .submit()
 })
 
-it.only('click', ()=>{
+it('click', ()=>{
     cy.visit("https://80.69.180.108:8441/")
         .get('a[class="clickable-text"]')
         .click({force: true})
+})
+
+it.only('checkbox', ()=>{
+    cy.visit("https://webref.ru/layout/html5-css3/form/checkbox")
+        .get('[value="1883"]')
+        .check()
 })
