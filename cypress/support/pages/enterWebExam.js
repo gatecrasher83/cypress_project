@@ -1,21 +1,33 @@
 export class enterWebExam {
-    typeLogin(login){
-    //ввод логина
-    cy.get('[type="email"]')
-    .type(login, {force: true}) 
+    
+    
+    typeEnter(login,password){
+        cy.get('[type="email"]')
+        .type(login, {force: true})
+        .get('[type="password"]')
+        .type(password, {force: true})
+        .get('[type="submit"]')
+        .click({force: true})
     }
 
-    typePassword(password) {
-    //ввод пароля
-    cy.get('[type="password"]')
-    .type(password, {force: true})
+    openContragent(){
+        //открыть раздел "Контрагенты"
+        cy.get('button').contains('Контрагенты')
+        .click({force: true})
     }
 
-    clickEnter() {
-    //войти
-    cy.get('[type="submit"]')
-    .click({force: true})
+    scrollToPaginator(){
+        //скролл до пейджинатора
+        cy.get('div').contains(' элементов на странице: ')
+        .scrollIntoView()
+    }
+
+    unAuthorize(){
+        //выход
+        cy.get('span')
+        .contains(' Выход')
+        .click({force: true})
     }
 }
 
-export const enterWebExam = enterWebExam()
+export const enterwebExam = new enterWebExam()
