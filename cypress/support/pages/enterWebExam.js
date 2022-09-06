@@ -22,6 +22,12 @@ export class enterWebExam {
         .scrollIntoView()
     }
 
+    footerAssertion(footer){
+        //assertion footer
+        cy.get('[class="text-muted col-auto m-auto noselect"]')
+        .should('have.text', footer)
+    }
+
     unAuthorize(){
         //выход
         cy.get('span')
