@@ -1,18 +1,19 @@
 /// <reference types="cypress" />
+import { enterWebExam } from "../support/pages/enterWebExam"
 
 it.only('assertion footer', ()=>{
     cy.viewport(1440,900)
     cy.visit("https://80.69.180.108:8441/")
-    //ввод логина
-    .get('[type="email"]')
-    .type('super@admin.ru', {force: true})
-    //ввод пароля
-    .get('[type="password"]')
-    .type('qwe123QWE!@#', {force: true})
-    //войти
-    .get('[type="submit"]')
-    .click({force: true})
+    
+    enterWebExam.typeLogin('super@admin.ru')
+    enterWebExam.typePassword('qwe123QWE!@#')
+    enterWebExam.clickEnter()
+    
+
     .wait(2000)
+
+    cy.screenshot()
+
     //открыть раздел "Контрагенты"
     .get('button').contains('Контрагенты')
     .click({force: true})
@@ -20,6 +21,7 @@ it.only('assertion footer', ()=>{
     .get('div').contains(' элементов на странице: ')
     .wait(3000)
     .scrollIntoView()
+
     .wait(2000)
     //assertion footer
     .get('[class="text-muted col-auto m-auto noselect"]')
