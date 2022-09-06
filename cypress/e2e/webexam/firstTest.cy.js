@@ -11,10 +11,6 @@ it.only('assertion footer', ()=>{
     enterwebExam.openContragent()
     enterwebExam.scrollToPaginator()
     cy.wait(2000)
-    
-    //assertion footer
-    cy.get('[class="text-muted col-auto m-auto noselect"]')
-    .should('have.text', ' ©2000-2022 Форвард ')
-    
+    enterwebExam.footerAssertion(' ©2000-2022 Форвард ')
     enterwebExam.unAuthorize() 
 })
