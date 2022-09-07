@@ -1,15 +1,6 @@
 export class enterWebExam {
     
     
-    typeEnter(login,password){
-        cy.get('[type="email"]')
-        .type(login, {force: true})
-        .get('[type="password"]')
-        .type(password, {force: true})
-        .get('[type="submit"]')
-        .click({force: true})
-    }
-
     openContragent(){
         //открыть раздел "Контрагенты"
         cy.get('button').contains('Контрагенты')
@@ -28,12 +19,7 @@ export class enterWebExam {
         .should('have.text', footer)
     }
 
-    unAuthorize(){
-        //выход
-        cy.get('span')
-        .contains(' Выход')
-        .click({force: true})
-    }
+    
 }
 
 export const enterwebExam = new enterWebExam()
