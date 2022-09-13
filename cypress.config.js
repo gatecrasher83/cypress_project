@@ -1,5 +1,11 @@
 const { defineConfig } = require("cypress");
 
+module.exports = async () => {
+  // your method for building the urls/names
+  let urls = await getSnapshotUrls();
+  return urls.map(url => ({ name: url, url }));
+}
+
 module.exports = defineConfig({
   projectId: 'tphdy6',
   e2e: {

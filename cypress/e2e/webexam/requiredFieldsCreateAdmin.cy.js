@@ -2,4 +2,5 @@
 
 it("Открытие страницы", ()=>{
     cy.visit('/')
+    cy.percySnapshot();
 })
